@@ -27,7 +27,7 @@ import GenerateModal from './GenerateModal';
 import AI_Icon from "@/assets/AI_Icon.svg";
 
 const App: React.FC = () => {
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
 
     return (
         <div className="absolute flex items-center justify-center top-0 left-0 w-full h-full">
