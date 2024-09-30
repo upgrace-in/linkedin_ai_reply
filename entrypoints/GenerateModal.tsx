@@ -117,16 +117,15 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
 
   const handleInsert = () => {
     let placeholder = document.querySelector('.msg-form__placeholder');
-    if (placeholder) {
-      placeholder.remove();
-      let textarea = document.querySelector('.msg-form__contenteditable > p');
-      if (textarea) {
-        textarea.textContent = defaultReply;
-        const sendButton = document.querySelector('.msg-form__send-button');
-        if (sendButton) sendButton.removeAttribute('disabled');
-        onClose();
-      }
-    }
+    if (placeholder) placeholder.remove();
+
+    let textarea = document.querySelector('.msg-form__contenteditable > p');
+    if (textarea) textarea.textContent = defaultReply;
+
+    const sendButton = document.querySelector('.msg-form__send-button');
+    if (sendButton) sendButton.removeAttribute('disabled');
+
+    onClose();
   };
 
   // Function to handle backdrop click
