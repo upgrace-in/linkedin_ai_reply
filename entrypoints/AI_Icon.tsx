@@ -30,10 +30,11 @@ const App: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     return (
-        <div className="absolute z-[9999] flex items-center justify-center top-0 left-0 w-full h-full">
+        <div className="absolute flex items-center justify-center top-0 left-0 w-full h-full">
+            {/* TODO: place this icon properly */}
             <span
                 onClick={() => setIsModalOpen(true)}
-                className="absolute text-white rounded-md px-2 py-2 top-4 right-4"
+                className="absolute z-[9999] text-white rounded-md px-2 py-2 top-4 right-4"
                 style={{ cursor: 'pointer' }} // Optional: Ensures the button is clickable
             >
                 <img src={AI_Icon} alt="AI Icon" className="mr-2" />

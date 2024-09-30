@@ -9,29 +9,39 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState<string>('');
   const [messages, setMessages] = useState<{ text: string, isUser: boolean }[]>([]);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
 
   if (!open) return null;
 
+  const defaultReply = "Thank you for the opportunity! If you have any more questions or if there's anything else I can help you with, feel free to ask."
+
   const handleSubmit = () => {
     if (inputValue.trim()) {
-      setMessages([...messages, { text: inputValue, isUser: true }, { text: "Thank you for the opportunity! If you have any more questions or if there's anything else I can help you with, feel free to ask.", isUser: false }]);
+      setMessages([...messages, { text: inputValue, isUser: true }, { text: defaultReply, isUser: false }]);
       setInputValue('');
       setIsButtonDisabled(true);
     }
   };
 
   const handleInsert = () => {
-    // Insert button logic here
-    console.log('Insert button clicked');
-  };
+    let placeholder = document.querySelector('.msg-form__placeholder')
+    if (placeholder) {
+      placeholder.remove()
+      let textarea = document.querySelector('.msg-form__contenteditable > p');
+      if (textarea) {
+        textarea.textContent = defaultReply
+        const sendButton = document.querySelector('.msg-form__send-button');
+        if (sendButton)
+          sendButton.removeAttribute('disabled');
+        onClose()
+      }
+    }
+  }
 
   return (
-    <div data-dialog-backdrop="dialog"
-      data-dialog-backdrop-close="true"
-      className="z-999 fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
+    <div className="z-[9999] fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
       <div className="bg-white rounded-lg shadow-lg p-6 w-[32rem] relative">
         <div className="rounded-lg pb-2 w-full">
           {messages.map((message, index) => (
