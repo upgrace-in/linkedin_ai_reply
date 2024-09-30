@@ -13,7 +13,6 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<{ text: string, isUser: boolean }[]>([]);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [isGenerateClicked, setIsGenerateClicked] = useState(false); // New state variable
 
   if (!open) return null;
 
@@ -22,8 +21,6 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
       setMessages([...messages, { text: inputValue, isUser: true }, { text: "Thank you for the opportunity! If you have any more questions or if there's anything else I can help you with, feel free to ask.", isUser: false }]);
       setInputValue('');
       setIsButtonDisabled(true);
-      setIsGenerateClicked(true); // Set to true when Generate is clicked
-      onClose();
     }
   };
 
@@ -39,7 +36,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
           {messages.map((message, index) => (
             <div key={index} className={`flex ${message.isUser ? 'justify-end pb-2' : ''}`}>
               <div className={`${message.isUser ? 'bg-gray-200' : 'bg-blue-200'} text-grey p-2 rounded-lg max-w-xs`}>
-                <span className="text-gray-600">
+                <span className="text-gray-600 font-light">
                   {message.text}
                 </span>
               </div>
@@ -54,7 +51,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
           className="w-full border border-gray-300 p-2 rounded mb-4"
         />
         <div className="flex justify-end mb-4">
-          {isGenerateClicked && (
+          {isButtonDisabled && (
             <button
               className="border border-gray-500 text-gray-700 py-2 px-4 rounded flex items-center mr-2 hover:bg-gray-100 active:bg-gray-200"
               onClick={handleInsert}
@@ -64,7 +61,8 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
             </button>
           )}
           <button
-            className={`bg-blue-500 text-white py-2 px-4 rounded flex items-center ${isButtonDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600'}`}
+            // className={`bg-blue-500 text-white py-2 px-4 rounded flex items-center ${isButtonDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600'}`}
+            className={`bg-blue-500 text-white py-2 px-4 rounded flex items-center hover:bg-blue-600`}
             onClick={handleSubmit}
             disabled={isButtonDisabled}
           >

@@ -13,7 +13,7 @@ const App: React.FC = () => {
                 Open Generate Modal
             </button>
 
-            <GenerateModal open={isModalOpen} onClose={() => console.log("CLOSED")} />
+            <GenerateModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 };
