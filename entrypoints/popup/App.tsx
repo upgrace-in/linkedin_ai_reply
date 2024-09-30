@@ -1,6 +1,6 @@
 import reactLogo from '@/assets/react.svg';
 import wxtLogo from '/wxt.svg';
-import '../../assets/main.css'
+import './App.css'
 
 function App() {
   return (
