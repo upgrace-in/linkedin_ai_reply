@@ -1,3 +1,4 @@
-# WXT + React
-
-This template should help get you started developing with React in WXT.
+# TODO:
+- Modal should close on clicking outside
+- Icon should be at the place of chatting
+- Insert button should work

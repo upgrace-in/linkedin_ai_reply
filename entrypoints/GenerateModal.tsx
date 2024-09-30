@@ -1,4 +1,3 @@
-// src/components/Modal.tsx
 import React, { useState } from 'react';
 import sendIcon from '@/assets/sendIcon.svg';
 import insertIcon from '@/assets/insertIcon.svg'
@@ -30,7 +29,9 @@ const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
+    <div data-dialog-backdrop="dialog"
+      data-dialog-backdrop-close="true"
+      className="z-999 fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
       <div className="bg-white rounded-lg shadow-lg p-6 w-[32rem] relative">
         <div className="rounded-lg pb-2 w-full">
           {messages.map((message, index) => (
