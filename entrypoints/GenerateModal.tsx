@@ -1,6 +1,5 @@
 // src/components/Modal.tsx
 import React from 'react';
-import "@/entrypoints/popup/App.css"
 
 interface ModalProps {
   onClose: () => void;
@@ -10,7 +9,7 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ open, onClose }) => {
   if (!open) return null
   return (
-    <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
+    <div className="bg-gray-900 fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
       <div className="bg-white rounded-lg shadow-lg p-6 w-96">
         <h2 className="text-lg font-semibold mb-4">Enter Information</h2>
         <input
