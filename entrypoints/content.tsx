@@ -1,7 +1,7 @@
 // 1. Import the style
 import './style.css';
 import ReactDOM from 'react-dom/client';
-import Icon from "./Icon"
+import Icon from "./AI_Icon"
 
 export default defineContentScript({
   matches: ['*://*.linkedin.com/*'],
