@@ -13,11 +13,9 @@ const App: React.FC = () => {
                 // Create a wrapper div for the icon to append inside the textarea
                 const iconWrapper = document.createElement('div');
                 iconWrapper.innerHTML = `
-                    <div class="ai_icon" style="position: absolute; cursor: pointer; bottom: 4px; right: 4px;">
-                    <span>
+                    <span class="ai_icon" style="position: absolute; cursor: pointer; bottom: 0; right: 0;">
                         <img src="${AI_Icon}" alt="AI Icon" />
                     </span>
-                    </div>
                 `;
 
                 const iconElement = iconWrapper.querySelector('span');
