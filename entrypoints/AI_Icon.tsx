@@ -10,6 +10,13 @@ const App: React.FC = () => {
         const checkVisibility = () => {
             const textarea = document.querySelector('.msg-form__contenteditable') as HTMLElement | null;
             if (textarea) {
+
+                const divToRemove = textarea.querySelector('div')
+
+                if (divToRemove) {
+                    divToRemove.remove()
+                }
+
                 // Create a wrapper div for the icon to append inside the textarea
                 const iconWrapper = document.createElement('div');
                 iconWrapper.innerHTML = `
@@ -26,7 +33,7 @@ const App: React.FC = () => {
                 textarea.style.position = 'relative'; // Ensure relative positioning for proper placement
                 textarea.appendChild(iconWrapper);
 
-                clearInterval(visibilityCheckInterval)
+                // clearInterval(visibilityCheckInterval)
 
                 // Cleanup function to remove the icon when the component unmounts
                 return () => {
